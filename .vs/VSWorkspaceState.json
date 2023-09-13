@@ -6,10 +6,11 @@
     "\\app_server\\routes",
     "\\app_server\\views",
     "\\app_server\\views\\partials",
+    "\\data",
     "\\public",
     "\\public\\css",
     "\\public\\javascripts"
   ],
-  "SelectedNode": "\\app_server\\views\\rooms.hbs",
+  "SelectedNode": "\\data\\trips.json",
   "PreviewInSolutionExplorer": false
 }
