@@ -11,6 +11,6 @@
     "\\public\\css",
     "\\public\\javascripts"
   ],
-  "SelectedNode": "\\data\\trips.json",
+  "SelectedNode": "\\app_server\\views\\rooms.hbs",
   "PreviewInSolutionExplorer": false
 }
