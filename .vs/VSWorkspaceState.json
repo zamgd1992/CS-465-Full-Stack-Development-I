@@ -2,15 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\app_server",
-    "\\app_server\\controllers",
-    "\\app_server\\routes",
-    "\\app_server\\views",
-    "\\app_server\\views\\partials",
+    "\\app_server\\database",
+    "\\app_server\\database\\models",
+    "\\bin",
     "\\data",
     "\\public",
     "\\public\\css",
     "\\public\\javascripts"
   ],
-  "SelectedNode": "\\app_server\\views\\rooms.hbs",
+  "SelectedNode": "\\.seedgooserc.js",
   "PreviewInSolutionExplorer": false
 }
