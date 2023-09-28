@@ -1,15 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\app_api",
+    "\\app_api\\controllers",
+    "\\app_api\\models",
+    "\\app_api\\routes",
     "\\app_server",
-    "\\app_server\\database",
-    "\\app_server\\database\\models",
-    "\\bin",
-    "\\data",
-    "\\public",
+    "\\app_server\\routes",
+    "\\app_server\\views",
     "\\public\\css",
     "\\public\\javascripts"
   ],
-  "SelectedNode": "\\.seedgooserc.js",
+  "SelectedNode": "\\app_server\\views\\index.hbs",
   "PreviewInSolutionExplorer": false
 }
