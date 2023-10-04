@@ -6,12 +6,12 @@ const tripsController = require('../controllers/trips');
 router
     .route('/trips')
     .get(tripsController.tripsList)
-    .post(tripsController.tripsCreate);
+    .post(tripsController.tripsAddTrip);
 
 router
     .route('/trips/:tripCode')
     .get(tripsController.tripsFindByCode)
-    .put(tripsController.tripsUpdateOne)
-    .delete(tripsController.tripsDeleteOne);
+    .put(tripsController.tripsEditTrip)
+    .delete(tripsController.tripsDeleteTrip);
 
 module.exports = router;

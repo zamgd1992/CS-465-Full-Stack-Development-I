@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Model = mongoose.model('trips');
 
 // POST: /trips - create new trip
-const tripsCreate = (req, res) => {
+const tripsAddTrip = async (req, res) => {
     Model.create({
         code: req.body.code,
         name: req.body.name,
@@ -16,11 +16,11 @@ const tripsCreate = (req, res) => {
         (err, trips) => {
             if (err) {
                 res
-                    .status(400)
+                    .status(400) //bad request
                     .json(err);
             } else {
                 res
-                    .status(201)
+                    .status(201) //Created
                     .json(trips);
             }
         });
@@ -69,7 +69,7 @@ const tripsFindByCode = (req, res) => {
 };
 
 //PUT: /trips/:tripCode - update a trip
-const tripsUpdateOne = (req, res) => {
+const tripsEditTrip = (req, res) => {
     if (!req.params.code) {
         return res
             .status(404)
@@ -115,7 +115,7 @@ const tripsUpdateOne = (req, res) => {
 };
 
 // DELETE: /trips/:tripCode
-const tripsDeleteOne = (req, res) => {
+const tripsDeleteTrip = (req, res) => {
     const { tripCode } = req.params;
     if (tripCode) {
         Model
@@ -142,8 +142,8 @@ const tripsDeleteOne = (req, res) => {
 
 module.exports = {
     tripsList,
-    tripsCreate,
+    tripsAddTrip,
     tripsFindByCode,
-    tripsUpdateOne,
-    tripsDeleteOne
+    tripsEditTrip,
+    tripsDeleteTrip
 };
