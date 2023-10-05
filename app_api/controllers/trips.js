@@ -69,50 +69,44 @@ const tripsFindByCode = (req, res) => {
 };
 
 //PUT: /trips/:tripCode - update a trip
-const tripsEditTrip = (req, res) => {
-    if (!req.params.code) {
-        return res
-            .status(404)
-            .json({
-                "message": "Not found, trip code is required"
-            });
-    }
+const tripsUpdateTrip = async (req, res) => {
+    console.log(req.body);
     Model
-        .findByCode(req.params.code)
-        .exec((err, trip) => {
+        .findOneAndUpdate({ 'code': req.params.tripCode }, {
+            code: req.body.code,
+            name: req.body.name,
+            length: req.body.length,
+            start: req.body.start,
+            resort: req.body.resort,
+            perPerson: req.body.perPerson,
+            image: req.body.image,
+            description: req.body.description
+        }, { new: true })
+        .then(trip => {
             if (!trip) {
                 return res
                     .status(404)
-                    .json({
-                        "message": "code not found"
+                    .send({
+                        message: "Trip not found with code "
+                            + req.params.tripCode
                     });
-            } else if (err) {
-                return res
-                    .status(400)
-                    .json(err);
             }
-            trip.code = req.body.code;
-            trip.name = req.body.name;
-            trip.length = req.body.length;
-            trip.start = req.body.start;
-            trip.resort = req.body.resort;
-            trip.perPerson = req.body.perPerson;
-            trip.image = req.body.image;
-            trip.description = req.body.description;
-            trip.save((err, trip) => {
-                if (err) {
-                    res
-                        .status(404)
-                        .json(err);
-                } else {
-                    res
-                        .status(200)
-                        .json(trip);
-                }
-            });
-        }
-        );
-};
+            res.send(trip);
+        }).catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res
+                    .status(404)
+                    .send({
+                        message: "Trip not found with code "
+                            + req.params.tripCode
+                    });
+            }
+            return res
+                .status(500) // server error
+                .json(err);
+        });
+}
+
 
 // DELETE: /trips/:tripCode
 const tripsDeleteTrip = (req, res) => {
@@ -144,6 +138,6 @@ module.exports = {
     tripsList,
     tripsAddTrip,
     tripsFindByCode,
-    tripsEditTrip,
+    tripsUpdateTrip,
     tripsDeleteTrip
 };
