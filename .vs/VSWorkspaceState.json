@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app_admin",
+    "\\app_admin\\src",
+    "\\app_admin\\src\\app",
+    "\\app_admin\\src\\app\\services",
+    "\\app_api",
+    "\\app_api\\models",
+    "\\app_api\\routes",
+    "\\public",
+    "\\public\\images"
+  ],
+  "SelectedNode": "\\public",
+  "PreviewInSolutionExplorer": false
+}
